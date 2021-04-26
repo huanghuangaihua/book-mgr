@@ -31,3 +31,5 @@ app.listen(3000,()=>{
     console.log('启动成功');
 });
 //3000为端口
+
+console.log('12333');
