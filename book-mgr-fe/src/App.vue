@@ -1,9 +1,8 @@
 <template>
   <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+   <router-view></router-view>
   </div>
-  <router-view/>
+  
 </template>
 //导入组件
 <style lang="scss">
