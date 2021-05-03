@@ -14,7 +14,7 @@
                             <a-input 
                                 size="large" 
                                 placeholder="账户"
-                                
+                                v-model:value="loginForm.account"
                             >
                              <template #prefix>
                                 <UserOutlined />
@@ -26,7 +26,7 @@
                             <a-input 
                                 size="large" 
                                 placeholder="密码"
-                               
+                               v-model:value="loginForm.password"
                             >
                                 <template #prefix>
                                     <LockOutlined />
@@ -39,7 +39,11 @@
                         </div>
                         <p></p>
                         <div class="buttom-item">
-                            <a-button size="large" type="primary">
+                            <a-button 
+                            size="large" 
+                            type="primary"
+                            @click="login"
+                            >
                                 登录
                             </a-button>
                         </div>
@@ -59,6 +63,7 @@
                                     <UserOutlined />
                                 </template>
                             </a-input>
+     
                            
                         </div>
 
@@ -75,7 +80,11 @@
                         </div>
 
                         <div class="user-item">
-                            <a-input size="large" placeholder="邀请码">
+                            <a-input 
+                            size="large" 
+                            placeholder="邀请码"
+                            v-model:value="regForm.inviteCode"
+                            >
                                
                                 <template #prefix>
                                     <MenuOutlined />
