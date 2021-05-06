@@ -2,5 +2,12 @@
     width: 100%;
     .search{
         width: 300px;
+        display: flex;
+        align-items: center;
+
+        a{
+            width:40px;
+            margin-left: 16px;
+        }
     }
 }
