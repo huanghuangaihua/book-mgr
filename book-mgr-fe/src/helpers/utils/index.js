@@ -13,6 +13,7 @@ export const result = (response,authShowErrorMsg = true) =>{
             }
             return this;
         },
+        
         fail(cb){
             if(data.code === 0){
                 cb(data,response);
@@ -30,21 +31,26 @@ export const clone = (obj) => {
     return JSON.parse(JSON.stringify(obj));
 };
 
+const tsPadStart = (str) =>{
+    str = String(str);
+
+    return str.padStart(2,'0');
+}
 
 export const formatTimestamp = (ts) => {
     const date = new Date(Number(ts));
 
     const YYY = date.getFullYear();
 
-    const MM = date.getMonth() +1;
+    const MM = tsPadStart(date.getMonth() +1);
 
-    const DD = date.getDate();
+    const DD = tsPadStart(date.getDate());
 
-    const hh = date.getHours();
+    const hh = tsPadStart(date.getHours());
      
-    const mm = date.getMinutes();
+    const mm = tsPadStart(date.getMinutes());
 
-    const ss = date.getSeconds();
+    const ss = tsPadStart(date.getSeconds());
     
     return `${YYY}/${MM}/${DD} ${hh}:${mm}:${ss}`;
 

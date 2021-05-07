@@ -1,6 +1,7 @@
 require('./Schema/User');
 require('./Schema/InviteCode');//进入文件
 require('./Schema/Book');
+require('./Schema/InventoryLog');
 
 const mongoose = require('mongoose');   //引进mongoose
 

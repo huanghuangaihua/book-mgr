@@ -1,5 +1,6 @@
 import { defineComponent,ref,onMounted } from 'vue';
 import { book } from '@/service';
+import { useRouter} from 'vue-router';
 import { message,Modal ,Input} from 'ant-design-vue';
 import { result ,formatTimestamp} from '@/helpers/utils';
 
@@ -13,6 +14,8 @@ export default defineComponent({
         Update,
     },
     setup(){
+        const router = useRouter();
+
         const columns = [
             {
                 title:'书名',
@@ -144,8 +147,8 @@ export default defineComponent({
                 });
 
                 result(res)
-                .success((data)=>{
-                    if(type === type){
+                .success(()=>{
+                    if(type === 'IN_COUNT'){
                         //入库操作
                         num = Math.abs(num);
                 
@@ -167,16 +170,25 @@ export default defineComponent({
               },
           });
        };
+       
 
+       //显示更新弹框
        const update =({ record }) => {
         showUpdateModal.value =true;
         curEditBook.value = record;
        };
 
+       //更新列表的某一行数据
        const updateCurBook = (newData) => {
           
             Object.assign(curEditBook.value, newData);
        };
+
+       //进入书籍详情页
+       const toDetail = ({record}) => {
+            router.push(`/books/${record._id}`)
+       };
+
         
         return{
             columns,
@@ -196,6 +208,7 @@ export default defineComponent({
             update,
             curEditBook,
             updateCurBook,
+            toDetail,
         };
     },
 });
